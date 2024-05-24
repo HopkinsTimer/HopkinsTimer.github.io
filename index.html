@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Tiem Unteal
+  </title>
+<p>
+</p>
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+</style>
+</head>
+<body>
+
+  <!-- Display the countdown timer in an element -->
+  <p id="demo"></p>
+
+  <script>
+  // Set the date we're counting down to
+  var countDownDate = new Date("May 31, 2024 12:35:00").getTime();
+  var currentDate = new Date();
+  if (currentDate.getDate() == 24) {
+    curTime = currentDate.getTime()
+    test_date = new Date("May 24, 2024 8:15:00")
+    distance_from_start = curTime - test_date.getTime()
+    var timeElapsed = 0 + distance_from_start;
+  }
+  if (currentDate.getDate() == 28) {
+    curTime = currentDate.getTime()
+    test_date = new Date("May 28, 2024 8:15:00")
+    distance_from_start = curTime - test_date.getTime()
+    var timeElapsed = 22320000 + distance_from_start;
+  }
+  if (currentDate.getDate() == 29) {
+    curTime = currentDate.getTime()
+    test_date = new Date("May 29, 2024 8:15:00")
+    distance_from_start = curTime - test_date.getTime()
+    var timeElapsed = 44640000 + distance_from_start;
+  }
+  if (currentDate.getDate() == 30) {
+    curTime = currentDate.getTime()
+    test_date = new Date("May 30, 2024 8:15:00")
+    distance_from_start = curTime - test_date.getTime()
+    var timeElapsed = 60240000 + distance_from_start;
+  }
+  if (currentDate.getDate() == 31) {
+    curTime = currentDate.getTime()
+    test_date = new Date("May 31, 2024 8:15:00")
+    distance_from_start = curTime - test_date.getTime()
+    var timeElapsed = 75840000 + distance_from_start;
+  }
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+    timeElapsed += 1000
+    console.log(timeElapsed)
+    var currentDate = new Date();
+    // Get today's date and time
+    var now = currentDate.getTime();
+    var reg_days = [24, 28]
+    var min_days = [29, 30, 31]
+    var min_start = new Date
+    min_start.setHours(8, 15, 0)
+    var min_end = new Date()
+    min_end.setHours(12, 35, 0)
+    var reg_start = new Date();
+    reg_start.setHours(8, 15, 0);
+    reg_end = new Date();
+    reg_end.setHours(14, 27, 0)
+    currentDateDate = currentDate.getDate();
+    thurs_fri = new Date('May 24, 2024 8:15:00')
+    fri_tues= new Date('May 28, 2024 8:15:00')
+    tues_wed = new Date('May 29, 2024 8:15:00')
+    wed_thurs = new Date('May 30, 2024 8:15:00')
+    thurs_fri_2 = new Date('May 31, 2024 8:15:00')
+    if (reg_days.includes(currentDateDate)  && currentDate >= reg_start && currentDate <= reg_end) {
+        var distance = 91440000 - timeElapsed;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // Display the result in the element with id="demo"
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+    }
+    if (min_days.includes(currentDateDate)  && currentDate >= min_start && currentDate <= min_end) {
+      var distance = 91440000 - timeElapsed;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      // Display the result in the element with id="demo"
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+    }
+
+    else if (currentDate.getTime() < thurs_fri.getTime()) {
+      var days = 1;
+      var hours = 1;
+      var minutes = 24;
+      var seconds = 0;
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+    }
+    else if (currentDate.getTime() < fri_tues.getTime()) {
+      var days = 0;
+      var hours = 19;
+      var minutes = 12;
+      var seconds = 0;
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+    }
+
+    else if (currentDate.getTime() < tues_wed.getTime()) {
+      var days = 0;
+      var hours = 13;
+      var minutes = 0;
+      var seconds = 0;
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+    }
+
+    else if (currentDate.getTime() < wed_thurs.getTime()) {
+      var days = 0
+      var hours = 8
+      var minutes = 40
+      var seconds = 0
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+    }
+
+    else if (currentDate.getTime() < wed_thurs.getTime()) {
+      var days = 0
+      var hours = 4
+      var minutes = 20
+      var seconds = 0
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+    }
+    
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+  }, 1000);
+  </script>
+</body>
+  
+</html>
