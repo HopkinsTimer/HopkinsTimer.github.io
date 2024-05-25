@@ -92,7 +92,7 @@ p {
         document.getElementById("demo").innerHTML = days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
     }
-    if (min_days.includes(currentDateDate)  && currentDate >= min_start && currentDate <= min_end) {
+    else if (min_days.includes(currentDateDate)  && currentDate >= min_start && currentDate <= min_end) {
       var distance = 91440000 - timeElapsed;
 
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
