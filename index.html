@@ -20,9 +20,9 @@ p {
 
   <!-- Display the countdown timer in an element -->
   <p id="demo"></p>
-  <audio controls autoplay>
-  <source src="../Undertale.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
+<audio autoplay loop>
+  <source src="https://github.com/HopkinsTimer/HopkinsTimer.github.io/blob/main/undertale.mp3?raw=true" type="audio/mpeg">
+Your browser does not support the audio element.
 </audio>
   <script>
   // Set the date we're counting down to
@@ -60,7 +60,7 @@ p {
   }
   // Update the count down every 1 second
   var x = setInterval(function() {
-    timeElapsed += 1000
+    timeElapsed += 250
     console.log(timeElapsed)
     var currentDate = new Date();
     // Get today's date and time
@@ -99,9 +99,16 @@ p {
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      var ms = Math.floor((distance % 1000) / 1000);
+      if (seconds == 0) {
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = days + "days" + hours + "hours" + minutes "minutes" + seconds "seconds" + ms + "milliseconds";
+            window.speechSynthesis.speak(msg);
+      }
+
       // Display the result in the element with id="demo"
       document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
+      + minutes + "m " + seconds + "s " + ms + "ms ";
     }
 
     else if (currentDate.getTime() < thurs_fri.getTime()) {
@@ -152,7 +159,7 @@ p {
       clearInterval(x);
       document.getElementById("demo").innerHTML = "EXPIRED";
     }
-  }, 1000);
+  }, 250);
   </script>
 </body>
   
