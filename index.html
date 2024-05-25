@@ -76,7 +76,7 @@ Your browser does not support the audio element.
     reg_end = new Date();
     reg_end.setHours(14, 27, 0)
     currentDateDate = currentDate.getDate();
-    thurs_fri = new Date('May 24, 2024 8:15:00')
+    thurs_fri = new Date('May 24, 2024 8:15:00');
     fri_tues= new Date('May 28, 2024 8:15:00')
     tues_wed = new Date('May 29, 2024 8:15:00')
     wed_thurs = new Date('May 30, 2024 8:15:00')
@@ -102,7 +102,7 @@ Your browser does not support the audio element.
       var ms = Math.floor((distance % 1000) / 1000);
       if (seconds == 0) {
             var msg = new SpeechSynthesisUtterance();
-            msg.text = days + "days" + hours + "hours" + minutes "minutes" + seconds "seconds" + ms + "milliseconds";
+            msg.text = days + "days" + hours + "hours" + minutes + "minutes" + seconds + "seconds" + ms + "milliseconds";
             window.speechSynthesis.speak(msg);
       }
 
