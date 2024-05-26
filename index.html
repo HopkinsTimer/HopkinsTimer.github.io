@@ -3,8 +3,10 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
-    Tiem Unteal
+    Hopkins Timer
   </title>
+
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/HopkinsTimer/HopkinsTimer.github.io/main/hopkins-150x151.png">
 <p>
 </p>
 <style>
@@ -20,9 +22,9 @@ p {
 
   <!-- Display the countdown timer in an element -->
   <p id="demo"></p>
-  <audio controls autoplay>
-  <source src="../Undertale.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
+<audio autoplay loop>
+  <source src="https://github.com/HopkinsTimer/HopkinsTimer.github.io/blob/main/undertale.mp3?raw=true" type="audio/mpeg">
+Your browser does not support the audio element.
 </audio>
   <script>
   // Set the date we're counting down to
@@ -60,7 +62,7 @@ p {
   }
   // Update the count down every 1 second
   var x = setInterval(function() {
-    timeElapsed += 1000
+    timeElapsed += 250
     console.log(timeElapsed)
     var currentDate = new Date();
     // Get today's date and time
@@ -76,7 +78,7 @@ p {
     reg_end = new Date();
     reg_end.setHours(14, 27, 0)
     currentDateDate = currentDate.getDate();
-    thurs_fri = new Date('May 24, 2024 8:15:00')
+    thurs_fri = new Date('May 24, 2024 8:15:00');
     fri_tues= new Date('May 28, 2024 8:15:00')
     tues_wed = new Date('May 29, 2024 8:15:00')
     wed_thurs = new Date('May 30, 2024 8:15:00')
@@ -88,6 +90,11 @@ p {
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        if (seconds == 0) {
+              var msg = new SpeechSynthesisUtterance();
+              msg.text = days + "days" + hours + "hours" + minutes + "minutes" + seconds + "seconds" + ms + "milliseconds";
+              window.speechSynthesis.speak(msg);
+        }
         // Display the result in the element with id="demo"
         document.getElementById("demo").innerHTML = days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
@@ -99,9 +106,16 @@ p {
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      var ms = Math.floor((distance % 1000) / 1000);
+      if (seconds == 0) {
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = days + "days" + hours + "hours" + minutes + "minutes" + seconds + "seconds" + ms + "milliseconds";
+            window.speechSynthesis.speak(msg);
+      }
+
       // Display the result in the element with id="demo"
       document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
+      + minutes + "m " + seconds + "s " + ms + "ms ";
     }
 
     else if (currentDate.getTime() < thurs_fri.getTime()) {
@@ -152,7 +166,7 @@ p {
       clearInterval(x);
       document.getElementById("demo").innerHTML = "EXPIRED";
     }
-  }, 1000);
+  }, 250);
   </script>
 </body>
   
